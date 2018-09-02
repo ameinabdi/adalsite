@@ -68,7 +68,7 @@ app.use(methodOverride(function (req, res) {
 
  
 /* route to handle login and registration */
-app.get('/', function(req, res){ 
+app.get('/home', function(req, res){ 
     res.render('index');
 });
 app.get('/signup', function(req, res){ 

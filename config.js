@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   host     : 'us-cdbr-iron-east-01.cleardb.net',
   user     : 'b9941530b8e7a0',
   password : 'c840afcb',
-  database : 'adalsite'
+  database : 'heroku_bd26221b1bd4a86'
 });
 connection.connect(function(err){
 if(!err) {

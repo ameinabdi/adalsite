@@ -1,8 +1,8 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
+  host     : 'us-cdbr-iron-east-01.cleardb.net',
+  user     : 'b9941530b8e7a0',
+  password : 'c840afcb',
   database : 'adalsite'
 });
 connection.connect(function(err){

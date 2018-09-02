@@ -1,0 +1,209 @@
+<%- include('partials/header') %>
+ 
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-5 align-self-center">
+                <h4 class="page-title">Product Details</h4>
+                <div class="d-flex align-items-center">
+
+                </div>
+            </div>
+            <div class="col-7 align-self-center">
+                <div class="d-flex no-block justify-content-end align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Product View</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header bg-info">
+                        <h4 class="m-b-0 text-white">Single Product Information</h4>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-body">
+                            <div class="card-body">
+                                <h4 class="card-title">Product Info</h4>
+                            </div>
+                            <hr class="m-t-0 m-b-40">
+
+                            <% singleproduct.forEach(function (info) { %>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Product Name:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"><%= info.name %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Price:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"><%= info.price %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">last Price:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"> <%= info.lastprice %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Quantity:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"><%= info.quantity %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Brand:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"> <%= info.brand %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Delivery:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"> <%= info.delivery %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <div class="row" >
+                                        
+                                    <div class="col-lg-12">
+                                        <div class="form-group row" style="width: 100%; text-align: center;"> 
+                                                
+                                                
+                                            <div class="col-md-9">
+                                                    <h3> Details </h3>
+                                                    <br/>
+                                                <p class="form-control-static"> <%= info.description %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                </div>
+                                <!--/row-->
+                               
+                                <h4 class="card-title">Gallery</h4>
+                            </div>
+                            <hr class="m-t-0 m-b-40">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                             <div class="col-md-9">
+                                                 <h4>Thumbnail</h4>
+                                                 <br/>
+                                                    <img src="assets/images/product/<%= info.thumbnail %>" alt="" class="" width="110" height="100">
+
+
+                                                 </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <div class="form-group row">
+                                                 <div class="col-md-9">
+                                                        <h6>photos</h6>
+                                                        <br/>
+                                                        <img src="assets/images/product/<%= info.photo1 %>" alt="" class="" width="110" height="100">
+                                                     </div>
+                                            </div>
+                                        </div>
+                                
+                                <div class="col-md-2">
+                                        <div class="form-group row">
+                                             <div class="col-md-9">
+                                                    <h6>photos</h6>
+                                                    <br/>
+                                                    <img src="assets/images/product/<%= info.photo2 %>" alt="" class="" width="110" height="100">
+                                                 </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <div class="form-group row">
+                                                 <div class="col-md-9">
+                                                        <h6>photos</h6>
+                                                        <br/>
+                                                        <img src="assets/images/product/<%= info.photo3 %>" alt="" class="" width="110" height="100">
+                                                     </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                                <div class="form-group row">
+                                                     <div class="col-md-9">
+                                                            <h6>photos</h6>
+                                                            <br/>
+                                                            <img src="assets/images/product/<%= info.photo4 %>" alt="" class="" width="110" height="100">
+                                                         </div>
+                                                </div>
+                                            </div>
+                            </div>
+                             
+                                 
+                                     
+                                </div>
+                                <!--/row-->
+                                
+                            </div>
+                            <hr>
+                            <%})%>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+  
+</div>
+ 
+
+
+<%- include('partials/footer') %>

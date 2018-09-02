@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/amoud.png">
+    <title>Adalsite | SignUp</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+     <!--My Custom CSS -->
+    <link href="dist/css/custom.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="body">
+    <div class="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <div class="row ">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body box">
+                        <h4 class="card-title title">SignUp</h4>
+                        <form action="/signup" method="POST" enctype="multipart/form-data">
+                                <div class="text-center">
+                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                                        <h6>Upload Your Bussiness Brand</h6>
+                                        <input type="file" class="text-center center-block file-upload" name="picture">
+                                      </div></hr><br>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Bussiness Name</label>
+                                            <input type="text" class="form-control" name="name" placeholder="Your Bussiness Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <label>User Name</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="username" placeholder="Your Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <label> Email</label>
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="Your Bussiness email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <label>Password</label>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" placeholder="Your Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Bussiness Location</label>
+                                                <input type="text"  class="form-control" name="address" placeholder="Your Bussiness Address">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <label>Bussiness Contact</label>
+                                            <div class="form-group">
+                                                <input type="text" name="contact" class="form-control" placeholder="Your Bussiness Contact">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <label>Manager's Name</label>
+                                            <div class="form-group">
+                                                <input type="text" name="manager" class="form-control" placeholder="Manager's Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <label>Info Manager</label>
+                                            <div class="form-group">
+                                                <input type="text" name="infomanager" class="form-control" placeholder="Information Of Manager">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Description</label>
+                                                <textarea class="form-control" placeholder="Your Discription" name="information" rows="5">
+                                                </textarea> 
+                                                </div>
+                                            </div>
+                                        </div>  
+                            <div class="form-actions">
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          
+    <!-- ============================================================== -->
+    <!-- All Required js -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugin js -->
+    <!-- ============================================================== -->
+    <script>
+    $('[data-toggle="tooltip"]').tooltip();
+    $(".preloader").fadeOut();
+    // ============================================================== 
+    // Login and Recover Password 
+    // ============================================================== 
+    $('#to-recover').on("click", function() {
+        $("#loginform").slideUp();
+        $("#recoverform").fadeIn();
+    });
+    </script>
+</body>
+
+</html>

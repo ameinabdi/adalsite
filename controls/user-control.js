@@ -54,7 +54,7 @@ module.exports.register = function(req, res){
     sess.email = req.body.email;
     sess.password = req.body.password;
 
-    if(!req.body.password){
+    if(!sess.email || !sess.password){
         res.redirect('/') 
         alert("inputs are empty")
     } else {

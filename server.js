@@ -111,6 +111,7 @@ app.get('/orderlist', orders.orderlist)
 app.get('/orderinfo=:id',orders.orderview)
 
  
+var port = process.env.port || 3000;
 
-app.listen(3000);
+app.listen(port);
 console.log(ip.address())

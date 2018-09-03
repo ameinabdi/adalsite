@@ -83,7 +83,7 @@ app.get('/logout',function(req,res){
       res.redirect('/');
   
 });
- 
+app.get('/profile', users.userprofile)
 // product routes
 app.get('/product', products.viewproduct)
 app.post('/product',products.addproduct)

@@ -82,3 +82,22 @@ module.exports.register = function(req, res){
    });
 }
 }
+
+
+module.exports.userprofile=function(req,res){
+  var user =  req.session.user,
+  sess = req.session; 
+
+   
+       
+  if(sess.email){
+      
+      res.render('profile', {user:user});
+
+  } else {
+     res.redirect('/') 
+  }
+
+
+
+}

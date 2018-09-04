@@ -49,7 +49,7 @@ module.exports.register = function(req, res){
    
    
    }
-   module.exports.login=function(req,res){
+module.exports.login=function(req,res){
     sess = req.session;
     sess.email = req.body.email;
     sess.password = req.body.password;

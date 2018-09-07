@@ -19,6 +19,7 @@ var dashboard = require('./controls/dashboard-control');
 var products = require('./controls/product-control')
 var costumers = require('./controls/costumers-control');
 var orders = require('./controls/orders-control');
+var payment =  require('./controls/payment-control');
 
 
 
@@ -119,7 +120,13 @@ app.get('/shopprofile=:id', users.profileshop);
 app.get('/shopproduct=:id', users.shopproduct);
 
 
- 
+// payment routes
+
+app.post('/addpayment', payment.addpayment)
+app.get('/payment', payment.payment);
+app.delete('/deletepayment=:id', payment.deletepayment);
+app.get('/productpayment=:id', payment.productpayment )
+
 
 
  

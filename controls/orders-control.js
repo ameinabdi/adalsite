@@ -49,7 +49,7 @@ module.exports.orderlist = function(req, res) {
     if(sess.email){
         connection.query('SELECT * FROM order_item WHERE user_id= "' + user.buss_id + '"', function(err, rows, fields) {
           if(err) throw err;
-          console.log("first",rows)
+          
                res.render('orders',{user:user, order:rows})
            
         

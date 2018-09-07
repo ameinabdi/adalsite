@@ -76,4 +76,32 @@ module.exports.viewcostumer = function(req, res){
     });
 
 }
+
+module.exports.profile = function(req,res){
+
+    connection.query('SELECT * FROM costumers WHERE costumers.cos_id = "'+req.params.id+'" ', function(err,results){
  
+        if(err){
+            res.json('profilekaaga waxbaa ka qaldan fadlan la hadal qaybta macaamisha')
+        }else{
+            res.json(results)
+        }
+
+    })
+
+
+}
+module.exports.purchase = function(req,res){
+
+    connection.query('SELECT * FROM costumers INNER JOIN order_item ON  costumers.cos_id = order_item.cos_id WHERE costumers.cos_id = "'+req.params.id+'" ', function(err,results){
+ 
+        if(err){
+            res.json('profilekaaga waxbaa ka qaldan fadlan la hadal qaybta macaamisha')
+        }else{
+            res.json(results)
+        }
+
+    })
+
+
+}

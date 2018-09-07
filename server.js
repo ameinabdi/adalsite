@@ -105,11 +105,22 @@ app.get('/allproduct', function(req,res){
 app.post('/costumers/register', costumers.register)
 app.post('/costumers/login', costumers.signin)
 app.get('/viewcostumers=:id', costumers.viewcostumer);
+app.get('/profilecostumer=:id', costumers.profile)
+app.get('/purchaseproduct=:id', costumers.purchase)
  
 // orders routes
 app.post('/orderitem', orders.orderitem)
 app.get('/orderlist', orders.orderlist)
 app.get('/orderinfo=:id',orders.orderview)
+
+// shops routes
+app.get('/shoplists', users.allshops);
+app.get('/shopprofile=:id', users.profileshop);
+app.get('/shopproduct=:id', users.shopproduct);
+
+
+ 
+
 
  
 var port = process.env.PORT || 3000;

@@ -101,3 +101,61 @@ module.exports.userprofile=function(req,res){
 
 
 }
+
+module.exports.allshops = function(req,res){
+  connection.query('SELECT * FROM users', function(err,rows){
+    if(err){
+      res.json('waxbaa ka qaldan tukaamadan fadlan laxidhidh shirkada')
+    } else{
+      res.json(rows)
+
+    }
+   
+
+
+  })
+
+
+
+
+
+
+
+}
+
+module.exports.profileshop = function(req, res){
+
+  connection.query('SELECT * FROM users  WHERE buss_id = "'+req.params.id+'" ', function(err,results){
+  
+   if(err){
+     res.json('waxba ka qaldan soo saarida tukaankan fadlan la xidhidh shirkada')
+   } else{
+     res.json(results)
+   }
+
+
+
+  })
+
+}
+
+
+module.exports.shopproduct = function(req, res){
+
+  connection.query('SELECT * FROM users INNER JOIN product ON  users.buss_id = product.user_id WHERE buss_id = "'+req.params.id+'" ', function(err,results){
+  
+   if(err){
+     res.json('waxba ka qaldan soo saarida tukaankan fadlan la xidhidh shirkada')
+   } else{
+     res.json(results)
+   }
+
+
+
+  })
+
+
+
+
+
+}

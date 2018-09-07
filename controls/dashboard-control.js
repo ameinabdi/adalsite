@@ -32,8 +32,7 @@ module.exports.dashboard=function(req,res){
                                             if(err){
                                                 console.log(err)
                                             } else{ 
-                                                console.log(orders)
-                                                console.log(total[0].total);
+                                                
                                                 var count = result[0].rows;
                                                 var row = rows[0].count;
                                                 var cos= costumer[0].costumer

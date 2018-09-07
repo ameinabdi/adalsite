@@ -4,6 +4,7 @@ var ejs = require('ejs');
 var path = require('path');
 var session = require('express-session');
 const fileUpload = require('express-fileupload');
+var flash = require('connect-flash');
 var app = express();
 var ip = require('ip');
 var cors = require('cors');
@@ -32,7 +33,7 @@ app.use(session({
         
   }));
 
- 
+app.use(flash())
 app.use(cors())
 app.set('views',path.join(__dirname, 'views'));
 app.set('view engine','ejs');
@@ -69,7 +70,7 @@ app.use(methodOverride(function (req, res) {
  
 /* route to handle login and registration */
 app.get('/', function(req, res){ 
-    res.render('index');
+    res.render('index', { expressFlash: req.flash('success')});
 });
 app.get('/signup', function(req, res){ 
     res.render('register');
@@ -77,7 +78,7 @@ app.get('/signup', function(req, res){
 app.get('/dashboard', dashboard.dashboard);
 app.post('/signup', users.register);
 app.post('/login', users.login);
-
+ 
 app.get('/logout',function(req,res){
   req.session.destroy()
       res.redirect('/');
@@ -111,7 +112,7 @@ app.get('/orderlist', orders.orderlist)
 app.get('/orderinfo=:id',orders.orderview)
 
  
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 3000;
 
 app.listen(port);
 console.log(ip.address())

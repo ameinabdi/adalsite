@@ -30,13 +30,13 @@ module.exports.register = function(req, res){
            var sql = "INSERT INTO `users`(`name`,`username`,`email`,`password`,`address`,`contact`,`manager`,`infomanager`,`information`,`picture`) VALUES ('" + name + "','" + username + "','" + email + "','" + password + "','" + address + "','" + contact + "','" + manager + "','" + infomanager + "','" + information + "','" + img_name + "')";
            var query = connection.query(sql, function(err, result){
                    console.log(result)
-                  res.redirect('/')
+                   req.flash('success', 'This is a flash message using the express-flash module.');                   res.redirect('/')
            })
    
        })
    
      } else {
-       message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
+       req.flash('success_msg', 'This format is not allowed , please upload file with .png,.gif,.jpg');
        console.log(message);
        res.render('register.ejs',{message: message});
      }
@@ -56,7 +56,7 @@ module.exports.login=function(req,res){
 
     if(!sess.email || !sess.password){
         res.redirect('/') 
-        alert("inputs are empty")
+        req.flash('success', {msg: 'Sign Up success'});
     } else {
    connection.query('SELECT * FROM users WHERE email = ? ',[sess.email], function (error, results, fields) {
      

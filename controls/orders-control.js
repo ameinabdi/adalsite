@@ -9,13 +9,13 @@ module.exports.orderitem = function(req, res){
    var  address1 = req.body.address1;
    var  address2 = req.body.address2;
    var  town = req.body.town;
-   var  ordertime = new Date();;
+   var  ordertime = Date();;
    var  phone  = req.body.phone;
    var  status = req.body.status;
    var  payment = req.body.payment;
 
 
- var sql = "INSERT INTO `order_item`(`costumer`,`product`,`address1`,`address2`, `town` ,`ordertime`,`phone`,`status`,`payment`) VALUES ('" + costumer + "','" + product + "','" + address1 + "','" + address2 + "','" + town + "','" + ordertime + "','" + phone + "','" + status + "' ,'" + payment + "')";
+ var sql = "INSERT INTO `order_item`(`costumer`,`product`,`address1`,`address2`, `town` ,`ordertime`,`phone`,`status`,`payment`) VALUES ('" + costumer + "','" + product + "','" + address1 + "','" + address2 + "','" + town + "','" + new Date() + "','" + phone + "','" + status + "' ,'" + payment + "')";
  var query = connection.query(sql, function(err, result){
       if(err){
         res.json("kumaad guuleysan dirida dalabkan")

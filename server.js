@@ -20,6 +20,8 @@ var products = require('./controls/product-control')
 var costumers = require('./controls/costumers-control');
 var orders = require('./controls/orders-control');
 var payment =  require('./controls/payment-control');
+var Notification = require('./controls/notification-control');
+
 
 
 
@@ -125,7 +127,12 @@ app.get('/shopproduct=:id', users.shopproduct);
 app.post('/addpayment', payment.addpayment)
 app.get('/payment', payment.payment);
 app.delete('/deletepayment=:id', payment.deletepayment);
-app.get('/productpayment=:id', payment.productpayment )
+app.get('/productpayment=:id', payment.productpayment );
+
+//Notification Routes
+
+app.get('/allnotifications', Notification.allnotification)
+app.post('/addnotification', Notification.addnatification)
 
 
 

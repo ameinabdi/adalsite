@@ -3,10 +3,9 @@ var connection = require('../config');
 module.exports.orderitem = function(req, res){
    
 
-   var cos_id = req.body.cos_id;
+   var costumer = req.body.costumer;
    var product = req.body.product;
-   var quantity = req.body.quantity;
-   var price = req.body.price;
+  
    var  address1 = req.body.address1;
    var  address2 = req.body.address2;
    var  town = req.body.town;
@@ -14,14 +13,19 @@ module.exports.orderitem = function(req, res){
    var  phone  = req.body.phone;
    var  status = req.body.status;
    var  payment = req.body.payment;
-   var  user_id = req.body.user_id;
 
 
- var sql = "INSERT INTO `order_item`(`cos_id`,`product`,`quantity`,`price`,`address1`,`address2`, `town` ,`ordertime`,`phone`,`status`,`payment`,`user_id`) VALUES ('" + cos_id + "','" + product + "','" + quantity + "','" + price + "','" + address1 + "','" + address2 + "','" + town + "','" + ordertime + "','" + phone + "','" + status + "' ,'" + payment + "','" + user_id + "')";
+ var sql = "INSERT INTO `order_item`(`costumer`,`product`,`address1`,`address2`, `town` ,`ordertime`,`phone`,`status`,`payment`) VALUES ('" + costumer + "','" + product + "','" + address1 + "','" + address2 + "','" + town + "','" + ordertime + "','" + phone + "','" + status + "' ,'" + payment + "')";
  var query = connection.query(sql, function(err, result){
-          
-                console.log(result)
-               res.json("waad dirtey dalabkaaga")
+      if(err){
+        res.json("kumaad guuleysan dirida dalabkan")
+        console.log(err)
+      } else{
+        res.json("waad dirtey dalabkaaga")
+
+      }   
+              
+         
         })
 
  

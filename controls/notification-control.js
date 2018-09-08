@@ -32,7 +32,7 @@ module.exports.addnatification=function(req,res){
       if(err){
           res.json("waxbaa qaldan fadlan dib u eeg")
       } else{
-          res.json("aad kaydisey maclumaadkan")
+          res.json("waad kaydisey maclumaadkan")
       }
 
     })

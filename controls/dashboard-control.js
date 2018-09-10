@@ -27,26 +27,19 @@ module.exports.dashboard=function(req,res){
                                     if(err){
                                         console.log(err)
                                     } else{
-                                        connection.query('SELECT *  FROM order_item WHERE user_id = "'+user.buss_id+'" ', function(err,orders){
-
-                                            if(err){
-                                                console.log(err)
-                                            } else{ 
+                 
                                                 
                                                 var count = result[0].rows;
                                                 var row = rows[0].count;
                                                 var cos= costumer[0].costumer
                                                 var tot =total[0].total
-                                                res.render('dashboard', {user:user, count:count, row:row,cos:cos, tot:tot, orders:orders });
+                                                res.render('dashboard', {user:user, count:count, row:row,cos:cos, tot:tot });
                                 
                                    
                                                       
-                                                    }
-                                        
-                                        
                                                     
                                         
-                                                })
+                                         
                                         
                                     }
                         

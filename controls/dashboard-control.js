@@ -11,17 +11,8 @@ module.exports.dashboard=function(req,res){
             if(err){
                 console.log(err)
             } else{
-                connection.query('SELECT COUNT (*)  AS count FROM order_item WHERE user_id = "'+user.buss_id+'" ', function(err,rows){
-
-                    if(err){
-                        console.log(err)
-                    } else{
-                        
-                        connection.query('SELECT COUNT (*)  AS customer FROM order_item WHERE user_id = "'+user.buss_id+'" ', function(err,costumer){
-
-                            if(err){
-                                console.log(err)
-                            } else{
+                
+             
                                 connection.query('SELECT SUM(price) AS total FROM product WHERE user_id = "'+user.buss_id+'" ', function(err,total){
 
                                     if(err){
@@ -53,20 +44,8 @@ module.exports.dashboard=function(req,res){
                             
                 
                         })
-                    }
-        
-        
-                    
-        
-                })
-
-            }
-
-
             
-
-        })
-     
+          
  
         
 

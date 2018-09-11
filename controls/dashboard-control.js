@@ -5,48 +5,91 @@ module.exports.dashboard=function(req,res){
     sess = req.session; 
          
     if(sess.email){
-
-        connection.query('SELECT COUNT (*)  AS rows FROM product WHERE user_id = "'+user.buss_id+'" ', function(err,result){
-
+        connection.query('SELECT  pro_id FROM product WHERE user_id = "'+user.buss_id+'"', function(err,product){
             if(err){
-                console.log(err)
-            } else{
-                
-             
-                                connection.query('SELECT SUM(price) AS total FROM product WHERE user_id = "'+user.buss_id+'" ', function(err,total){
+                console.log(err);
+            }else{
+              
+                connection.query('SELECT COUNT (*)  AS rows FROM product WHERE user_id = "'+user.buss_id+'" ', function(err,result){
 
-                                    if(err){
-                                        console.log(err)
-                                    } else{
-                 
+                    if(err){
+                        console.log(err)
+                    } else{
+                        connection.query('SELECT COUNT (*)  AS count FROM product INNER JOIN order_item ON product.pro_id = order_item.product WHERE product.user_id = "'+user.buss_id+'" ', function(err,rows){
+        
+                            if(err){
+                                console.log(err)
+                            } else{
+                                 
+                                        
+                                        connection.query('SELECT SUM(price) AS total FROM product WHERE user_id = "'+user.buss_id+'" ', function(err,total){
+        
+                                            if(err){
+                                                console.log(err)
+                                            } else{
+                                                connection.query('SELECT *  FROM order_item WHERE product = "'+result.pro_id+'" ', function(err,orders){
+        
+                                                    if(err){
+                                                        console.log(err)
+                                                    } else{ 
+                                                        Object.keys(rows).forEach(function(key) {
+                                                            var order = rows[key]
+                                                        
+                                                        var count = result[0].rows;
+                                                        var row = order.count;
+                                                        var tot =total[0].total;
+                                                        res.render('dashboard', {user:user, count:count,  row:row,  tot:tot, orders:orders });
+                                        
+                                                             }); 
+                                                              
+                                                            }
                                                 
-                                                var count = result[0].rows;
-                                                var row = rows[0].count;
-                                                var cos= costumer[0].costumer
-                                                var tot =total[0].total
-                                                res.render('dashboard', {user:user, count:count, row:row,cos:cos, tot:tot });
+                                                
+                                                            
+                                                
+                                                        })
+                                                
+                                            }
                                 
-                                   
-                                                      
-                                                    
-                                        
-                                         
-                                        
-                                    }
+                                
+                                            
+                                
+                                        })
+                                     
                         
                         
                                     
                         
-                                })
                             }
                 
                 
                             
                 
                         })
-            
-          
- 
+        
+                    }
+        
+        
+                    
+        
+                })
+             
+         
+
+
+
+
+
+
+
+            }
+
+
+
+
+        })
+
+        
         
 
     } else {

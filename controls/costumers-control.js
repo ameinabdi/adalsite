@@ -14,13 +14,13 @@ module.exports.register = function(req, res){
    var  birthday = req.body.birthday;
 
 if( !fullname  || !email  || !password  || !gender  || !phone  || !phone  || !address  || !birthday) {
-    res.status(200).json(" fadlan waxbaad ka tagtey formka! buuxi")
+    res.json( 500," fadlan waxbaad ka tagtey formka! buuxi")
 }
 
  var sql = "INSERT INTO `costumers`(`fullname`,`email`,`password`,`gender`, `phone` ,`address`,`birthday`) VALUES ('" + fullname + "','" + email + "','" + password + "','" + gender + "','" + phone + "','" + address + "','" + birthday + "')";
  var query = connection.query(sql, function(err, result){
                 
-               res.status(500).json("waad ku guuleysatey is diwan gelinta")
+               res.json(200,"waad ku guuleysatey is diwan gelinta")
         })
 
  

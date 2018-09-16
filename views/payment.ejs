@@ -46,7 +46,7 @@
                                                 <div class="form-group row">
                                                     <label for="fname2" class="col-sm-3 text-right control-label col-form-label"> Magaca</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="name" class="form-control" id="fname2" placeholder="KU QOR MAGACA KU QORAN NUMBERKA">
+                                                        <input type="text" name="name" class="form-control" id="fname2" placeholder="KU QOR MAGACA KU QORAN NUMBERKA" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -54,7 +54,7 @@
                                                 <div class="form-group row">
                                                     <label for="lname2" class="col-sm-3 text-right control-label col-form-label">Telephone</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="phone" class="form-control" id="lname2" placeholder="KU QOR NUMBERKA">
+                                                        <input type="text" name="phone" class="form-control" id="lname2" placeholder="KU QOR NUMBERKA" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +67,7 @@
                                                         <select name="company" class="form-control">
                                                               <option value="telesom">telesom</option>
                                                               <option value="somtel">somtel</option>
-                                                              <option value="hormuud">hormuud</option>
+                                                              <option value="hormuud">hormuud</option >
                                                               <option value="golis">golis</option>
                                                         </select>
                                                      </div>
@@ -80,7 +80,7 @@
                                                             <select name="type" class="form-control">
                                                                     <option value="marchent">marchent</option>
                                                                     <option value="number">number</option>
-                                                                     <input type="hidden" name="user_id" value=" <%= user.buss_id %> "/>
+                                                                     <input type="hidden" name="user_id" value=" <%= user.buss_id %> " required/>
                                                               </select>                                                    </div>
                                                 </div>
                                             </div>

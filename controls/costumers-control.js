@@ -20,7 +20,7 @@ if( !fullname  || !email  || !password  || !gender  || !phone   || !address  || 
  var sql = "INSERT INTO `costumers`(`fullname`,`email`,`password`,`gender`, `phone` ,`address`,`birthday`) VALUES ('" + fullname + "','" + email + "','" + password + "','" + gender + "','" + phone + "','" + address + "','" + birthday + "')";
  var query = connection.query(sql, function(err, result){
                 
-    es.status(200).json('waad ku guuleysatey is diwan gelinta')
+    res.status(200).json('waad ku guuleysatey is diwan gelinta')
         })
 
  

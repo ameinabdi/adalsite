@@ -13,7 +13,7 @@ module.exports.register = function(req, res){
    var  address = req.body.address;
    var  birthday = req.body.birthday;
 
-if( !fullname  || !email  || !password  || !gender  || !phone  || !phone  || !address  || !birthday) {
+if( !fullname  || !email  || !password  || !gender  || !phone   || !address  || !birthday) {
     res.status(500).json('fadlan waxbaad ka tagtey formka! buuxi')
 }
 

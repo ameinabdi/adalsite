@@ -1,0 +1,192 @@
+<<<<<<< HEAD
+=======
+
+       
+            <%- include('partials/header') %>
+       
+            <!-- ============================================================== -->
+             <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- Page wrapper  -->
+             <!-- ============================================================== -->
+             <div class="page-wrapper">
+                 <!-- ============================================================== -->
+                 <!-- Bread crumb and right sidebar toggle -->
+                 <!-- ============================================================== -->
+                 <div class="page-breadcrumb">
+                     <div class="row">
+                         <div class="col-5 align-self-center">
+                             <h4 class="page-title">Dashboard</h4>
+                             <div class="d-flex align-items-center">
+     
+                             </div>
+                         </div>
+                         <div class="col-7 align-self-center">
+                             <div class="d-flex no-block justify-content-end align-items-center">
+                                 <nav aria-label="breadcrumb">
+                                     <ol class="breadcrumb">
+                                         <li class="breadcrumb-item">
+                                             <a href="#">Home</a>
+                                         </li>
+                                         <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                     </ol>
+                                 </nav>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- ============================================================== -->
+                 <!-- End Bread crumb and right sidebar toggle -->
+                 <!-- ============================================================== -->
+                 <!-- ============================================================== -->
+                 <!-- Container fluid  -->
+                 <!-- ============================================================== -->
+                 <div class="container-fluid">
+                     <!-- ============================================================== -->
+                     <!-- Info box -->
+                     <!-- ============================================================== -->
+                     <div class="card-group">
+                         <!-- Card -->
+                         <div class="card">
+                             <div class="card-body">
+                                 <div class="d-flex align-items-center">
+                                     <div class="m-r-10">
+                                         <span class="btn btn-circle btn-lg bg-danger">
+                                             <i class="ti-clipboard text-white"></i>
+                                         </span>
+                                     </div>
+                                     
+                                     <div>
+                                         
+                                     
+                                     Alaabta
+                                     </div>
+                                     <div class="ml-auto">
+                                         <h2 class="m-b-0 font-light"> <%= count %></h2>
+                                     </div>
+                                      
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                         <!-- Card -->
+                         <div class="card">
+                             <div class="card-body">
+                                 <div class="d-flex align-items-center">
+                                     <div class="m-r-10">
+                                         <span class="btn btn-circle btn-lg btn-info">
+                                             <i class="ti-wallet text-white"></i>
+                                         </span>
+                                     </div>
+                                     <div>
+                                       
+                                      Dalab
+     
+                                     </div>
+                                     <div class="ml-auto">
+                                         <h2 class="m-b-0 font-light"><%= row %></h2>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                         <!-- Card -->
+                         <div class="card">
+                             <div class="card-body">
+                                 <div class="d-flex align-items-center">
+                                     <div class="m-r-10">
+                                         <span class="btn btn-circle btn-lg bg-success">
+                                             <i class="ti-shopping-cart text-white"></i>
+                                         </span>
+                                     </div>
+                                     <div>
+                                         Qiimaha
+     
+                                     </div>
+                                     <div class="ml-auto">
+                                         <h2 class="m-b-0 font-light"><%= row %></h2>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                         <!-- Card -->
+                         <div class="card">
+                             <div class="card-body">
+                                 <div class="d-flex align-items-center">
+                                     <div class="m-r-10">
+                                         <span class="btn btn-circle btn-lg bg-warning">
+                                             <i class="mdi mdi-currency-usd text-white"></i>
+                                         </span>
+                                     </div>
+                                     <div>
+                                         Total<br> Qiimaha
+     
+                                     </div>
+                                     <div class="ml-auto">
+                                         <h2 class="m-b-0 font-light">$-<%= tot %></h2>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <!-- Card -->
+                         <!-- Column -->
+                         <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                               <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 no-wrap table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>dalbasho</th>
+                                                            <th>Magaca macaamiisha</th>
+                                                            <th>Cinwaanka2</th>
+                                                            <th>Xaaladda</th>
+                                                            <th>Magaalada</th>
+                                                            <th>Bixinta</th>
+                                                            <th>Telephone</th>
+                                                            <th>fal</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <% orders.forEach(function (info) { %>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><%= info.order_id %></td>
+                                                            <td><%= info.cos_name %></td>
+                                                            <td><%= info.address2 %></td>
+                                                            <td><span class="label label-danger"><%= info.status %></span> </td>
+                                                            <td><%= info.town %></td>
+                                                            <td><%= info.payment %></td>
+                                                            <td><%= info.phone %></td>
+                                                            <td>
+                                                                <a href="/orderinfo=<%= info.order_id %>" class="btn btn-success"><i class="ti-eye" aria-hidden="true"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <%})%>
+                                                    <tfoot>
+                                                            <tr>
+                                                                <th>dalbasho</th>
+                                                                <th>Magaca macaamiisha</th>
+                                                                <th>Cinwaanka2</th>
+                                                                <th>Xaaladda</th>
+                                                                <th>Magaalada</th>
+                                                                <th>Bixinta</th>
+                                                                <th>Telephone</th>
+                                                                <th>fal</th>
+                                                                </tr>
+                                                        
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Column -->
+     
+      </div></div></div>
+                
+                 <%- include('partials/footer') %>
+>>>>>>> e84b4c9fd884cde1bb1507501a246c19dd46011d

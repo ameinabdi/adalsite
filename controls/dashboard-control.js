@@ -27,7 +27,7 @@ module.exports.dashboard=function(req,res){
                                             if(err){
                                                 console.log(err)
                                             } else{
-                                                connection.query('SELECT *  FROM order_item WHERE product = "'+result.pro_id+'" ', function(err,orders){
+                                                connection.query('SELECT * FROM product INNER JOIN order_item ON product.pro_id = order_item.product WHERE product.user_id = "'+user.buss_id+'" ', function(err,orders){
         
                                                     if(err){
                                                         console.log(err)

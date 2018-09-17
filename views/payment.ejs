@@ -17,7 +17,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="#">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">payment</li>
+                                <li class="breadcrumb-item active" aria-current="page">Bixinta</li>
                             </ol>
                         </nav>
                     </div>
@@ -29,7 +29,7 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myLargeModalLabel">PAYMENT FORM</h4>
+                                                <h4 class="modal-title" id="myLargeModalLabel">Froomka lacagaha</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
@@ -40,13 +40,13 @@
                                 
                                 <form class="form-horizontal" action="/addpayment" method="POST">
                                     <div class="card-body">
-                                        <h4 class="card-title">Payment Form</h4>
+                                        <h4 class="card-title">Froomka lacagaha</h4>
                                         <div class="row">
                                             <div class="col-sm-12 col-lg-6">
                                                 <div class="form-group row">
-                                                    <label for="fname2" class="col-sm-3 text-right control-label col-form-label"> Name</label>
+                                                    <label for="fname2" class="col-sm-3 text-right control-label col-form-label"> Magaca</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="name" class="form-control" id="fname2" placeholder="KU QOR MAGACA KU QORAN NUMBERKA">
+                                                        <input type="text" name="name" class="form-control" id="fname2" placeholder="KU QOR MAGACA " required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -54,7 +54,7 @@
                                                 <div class="form-group row">
                                                     <label for="lname2" class="col-sm-3 text-right control-label col-form-label">Telephone</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="phone" class="form-control" id="lname2" placeholder="KU QOR NUMBERKA">
+                                                        <input type="text" name="phone" class="form-control" id="lname2" placeholder="KU QOR NUMBERKA" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,12 +62,12 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-lg-6">
                                                 <div class="form-group row">
-                                                    <label for="uname1" class="col-sm-3 text-right control-label col-form-label">Company</label>
+                                                    <label for="uname1" class="col-sm-3 text-right control-label col-form-label">Shirkada</label>
                                                     <div class="col-sm-9">
                                                         <select name="company" class="form-control">
                                                               <option value="telesom">telesom</option>
                                                               <option value="somtel">somtel</option>
-                                                              <option value="hormuud">hormuud</option>
+                                                              <option value="hormuud">hormuud</option >
                                                               <option value="golis">golis</option>
                                                         </select>
                                                      </div>
@@ -75,12 +75,12 @@
                                             </div>
                                             <div class="col-sm-12 col-lg-6">
                                                 <div class="form-group row">
-                                                    <label for="nname" class="col-sm-3 text-right control-label col-form-label">Nick Name</label>
+                                                    <label for="nname" class="col-sm-3 text-right control-label col-form-label">Nooca lacagaha</label>
                                                     <div class="col-sm-9">
                                                             <select name="type" class="form-control">
                                                                     <option value="marchent">marchent</option>
                                                                     <option value="number">number</option>
-                                                                     <input type="hidden" name="user_id" value=" <%= user.buss_id %> "/>
+                                                                     <input type="hidden" name="user_id" value=" <%= user.buss_id %>  " /required>
                                                               </select>                                                    </div>
                                                 </div>
                                             </div>
@@ -121,17 +121,17 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Your Payment List </h4>
+                                <h4 class="card-title">Liiska lacagahaaga </h4>
                                  <div class="table-responsive">
-                                 <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"> add New Payment</button>
+                                 <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"> Habka lacagaha loo bixinayo</button>
         <table class="table v-middle">
             <thead>
                 <tr class="bg-light">
-                    <th class="border-top-0">Name</th>
+                    <th class="border-top-0">Magaca</th>
                     <th class="border-top-0">Telephone</th>
-                    <th class="border-top-0">Company</th>
-                    <th class="border-top-0">Type</th>
-                    <th class="border-top-0">Action</th>
+                    <th class="border-top-0">Shirkada</th>
+                    <th class="border-top-0">Qaybaha</th>
+                    <th class="border-top-0">ficil</th>
                 </tr>
             </thead>
             <tbody>

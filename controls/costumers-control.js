@@ -15,14 +15,28 @@ module.exports.register = function(req, res){
 
 if( !fullname  || !email  || !password  || !gender  || !phone   || !address  || !birthday) {
     res.status(500).json('fadlan waxbaad ka tagtey formka! buuxi')
+} else{
+    connection.query('SELECT * FROM costumers WHERE email = ? ',req.body.email, function(error, rows){
+         console.log(rows)
+        if(rows.length){
+            res.status(500).json('Fadlan Emailkan Hore Ayaa Loo Diwan Geliyey')
+           
+
+        } else{
+            var sql = "INSERT INTO `costumers`(`fullname`,`email`,`password`,`gender`, `phone` ,`address`,`birthday`) VALUES ('" + fullname + "','" + email + "','" + password + "','" + gender + "','" + phone + "','" + address + "','" + birthday + "')";
+            var query = connection.query(sql, function(err, result){
+                           
+               res.status(200).json('waad ku guuleysatey is diwan gelinta')
+                   })
+           
+        }
+    })
+
+       
+
 }
 
- var sql = "INSERT INTO `costumers`(`fullname`,`email`,`password`,`gender`, `phone` ,`address`,`birthday`) VALUES ('" + fullname + "','" + email + "','" + password + "','" + gender + "','" + phone + "','" + address + "','" + birthday + "')";
- var query = connection.query(sql, function(err, result){
-                
-    res.status(200).json('waad ku guuleysatey is diwan gelinta')
-        })
-
+ 
  
 
 
@@ -44,8 +58,12 @@ module.exports.signin= function(req, res){
         password:req.body.password,
     }
     if(!req.body.email || !req.body.password){
-        return res.status(500).json(" waa medanyahay sanduuqa maclumaadku")
+        return res.status(500).json(" waa medhanyahay sanduuqa maclumaadku")
     } else {
+        connection.query('SELECT * FROM costumers WHERE email = ? ',req.body.email, function(error, rows){
+            console.log(rows)
+           if(rows.length){
+            
    connection.query('SELECT * FROM costumers WHERE email = ? ',[users.email], function (error, results, fields) {
      
     if (results[0].password) {
@@ -61,6 +79,10 @@ module.exports.signin= function(req, res){
       }
         
    });
+}     else{
+    res.status(500).json('Fadlan Emailkan Majiro Isdiwaan geli')
+           
+} })  
 }
 
 

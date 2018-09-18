@@ -14,31 +14,71 @@ module.exports.register = function(req, res){
       var  manager  = req.body.manager;
       var  infomanager  = req.body.infomanager;
       var  information  = req.body.information;
+      var  category  = req.body.category;
        
 
      if(!req.files)
-     return req.status(400).send('No files were uploader.');
-   
+     return req.flash('danger', 'Waxa jira cilad fadlan la xidhiidh qaybta macaamiisha .');              
+     
      var file = req.files.picture;
      var img_name = file.name;
    
-     if(file.mimetype == "image/jpeg" || file.mimetype == "image/png" ||file.mimetype == "image/gif"){
+     if(file.mimetype == "image/jpeg" || file.mimetype == "image/jpg" || file.mimetype == "image/png" ||file.mimetype == "image/gif"){
            
        file.mv('publics/assets/images/users/'+file.name, function(err){
-           if(err)
-           return res.status(500).json(err);
-           var sql = "INSERT INTO `users`(`name`,`username`,`email`,`password`,`address`,`contact`,`manager`,`infomanager`,`information`,`picture`) VALUES ('" + name + "','" + username + "','" + email + "','" + password + "','" + address + "','" + contact + "','" + manager + "','" + infomanager + "','" + information + "','" + img_name + "')";
-           var query = connection.query(sql, function(err, result){
-                   console.log(result)
-                   req.flash('success', 'This is a flash message using the express-flash module.');                   res.redirect('/')
+           if(err){
+            req.flash('danger', 'Waxa jira cilad fadlan la xidhiidh qaybta macaamiisha .');    
+             res.redirect('/signup');   
+           }
+           
+
+           connection.query('SELECT email FROM users WHERE email =  ?',email, function(error, rows){ 
+             
+             
+            if(rows.length){
+         
+
+              console.log(rows.length)
+              req.flash('danger', 'email horaa la iskaga diwaan galiyey .');              
+              res.redirect('/signup');
+             } else{
+              var sql = "INSERT INTO `users`(`name`,`username`,`email`,`password`,`address`,`contact`,`manager`,`infomanager`,`information`,`category`, `picture`) VALUES ('" + name + "','" + username + "','" + email + "','" + password + "','" + address + "','" + contact + "','" + manager + "','" + infomanager + "','" + information + "','" + category + "','" + img_name + "')";
+              var query = connection.query(sql, function(err, result){
+                if(err){
+                 console.log(err)
+                 req.flash('danger', 'Waxa jira cilad fadlan la xidhiidh qaybta macaamiisha .');     
+                 res.redirect('/signup');    
+                }else{
+   
+                  req.flash('success', 'Waad is diwaan gelisay Fadlan Ka Gal Halkan .');              
+                  res.redirect('/');    
+       
+   
+                }
+                 })
+
+          
+              
+
+
+
+
+
+
+
+             }
+
+
            })
+
+
+         
    
        })
    
      } else {
-       req.flash('success_msg', 'This format is not allowed , please upload file with .png,.gif,.jpg');
-       console.log(message);
-       res.render('register.ejs',{message: message});
+      req.flash('danger', 'Sawirka Noocan ah Ma ogala Fadlan Ka Dhig jpg ama png');              
+       res.redirect('/signup');
      }
     
    
@@ -53,33 +93,56 @@ module.exports.login=function(req,res){
     sess = req.session;
     sess.email = req.body.email;
     sess.password = req.body.password;
+  
+    
 
     if(!sess.email || !sess.password){
+        req.flash('success', 'fadlan geli email kaaga iyo furaha sirta ah si aad u gasho');              
         res.redirect('/') 
-        req.flash('success', {msg: 'Sign Up success'});
-    } else {
-   connection.query('SELECT * FROM users WHERE email = ? ',[sess.email], function (error, results, fields) {
-     
-    if (results[0].password) {
-        bcrypt.compare(sess.password, results[0].password, function(err, result) {
-         if(result) {
-               req.session.userId = results[0].id;
-               req.session.user = results[0];
-               res.redirect('/dashboard');
-              
+      } else {
+   connection.query('SELECT * FROM users WHERE email = ? ',sess.email, function(error, rows){
+    if(rows.length){
+      connection.query('SELECT * FROM users WHERE email = ? ',[sess.email], function (error, results, fields) {
+   
+        if (results[0].password) {
+          bcrypt.compare(sess.password, results[0].password, function(err, result) {
+            if(result) {
+                  req.session.userId = results[0].id;
+                  req.session.user = results[0];
+                  res.redirect('/dashboard');
+        }  else {
+          console.log('Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta')  
+          req.flash('success', 'Waxbaa Ka Qaldan Fadlan La xidhiidh Qaybta Macamiisha');              
+          res.redirect('/') 
+ 
+                    
              }
-         else {
-            res.redirect('/') 
-         }
-       })
-      }
-    
-    
-    
-    
-    
-    
-   });
+           })
+          }
+        
+        
+        
+        
+        
+        
+        
+       });
+
+
+
+    } else{
+
+      res.redirect('/') 
+      console.log('Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta')  
+      req.flash('success', 'Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta');              
+     
+     
+
+
+      
+    }
+   })
+   
 }
 }
 

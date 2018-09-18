@@ -21,8 +21,7 @@ var costumers = require('./controls/costumers-control');
 var orders = require('./controls/orders-control');
 var payment =  require('./controls/payment-control');
 var Notification = require('./controls/notification-control');
-
-
+var about = require('./controls/about-control.js')
 
 
 app.use(express.static(__dirname + '/publics'));
@@ -73,12 +72,14 @@ app.use(methodOverride(function (req, res) {
  
 /* route to handle login and registration */
 app.get('/', function(req, res){ 
-    res.render('index', { expressFlash: req.flash('success')});
+    res.render('index', {  expressFlash: req.flash('success','danger')});
 });
 app.get('/signup', function(req, res){ 
-    res.render('register');
+    res.render('register', { danger: req.flash('danger'), expressFlash: req.flash('success') });
 });
 app.get('/dashboard', dashboard.dashboard);
+app.get('/aboutus', about.aboutus )
+ 
 app.post('/signup', users.register);
 app.post('/login', users.login);
  

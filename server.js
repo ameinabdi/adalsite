@@ -104,6 +104,16 @@ app.get('/allproduct', function(req,res){
 
   });
 })
+app.get('/foodproduct', products.foodproduct )
+app.get('/storeproduct',products.storeproduct)
+app.get('/clotheproduct', products.clotheproduct)
+app.get('/electronicproduct', products.electronproduct)
+app.get('/cosmeticproduct', products.cosmeticproduct)
+app.get('/furnitureproduct',products.furnitureproduct)
+
+
+
+
 
 // costumers routes
 app.post('/costumers/register', costumers.register)

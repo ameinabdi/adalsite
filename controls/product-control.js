@@ -103,7 +103,7 @@ module.exports.addproduct = function(req, res){
       var  user  = req.body.user_id;
        
 
-     if(!req.files)
+     if(!req.files )
      return res.status(400).send('No files were uploader.');
    
      var file = req.files.thumbnail;
@@ -119,7 +119,7 @@ module.exports.addproduct = function(req, res){
      var photo4 = file4.name;
      
 
-     if(file.mimetype == "image/jpeg",file1.mimetype == "image/jpeg",file2.mimetype == "image/jpeg", file3.mimetype == "image/jpeg",  file4.mimetype == "image/jpeg" || file.mimetype == "image/png",file1.mimetype == "image/png", file2.mimetype == "image/png", file3.mimetype == "image/png",file4.mimetype == "image/png"){
+     if( file.mimetype == "image/png",file1.mimetype == "image/png", file2.mimetype == "image/png", file3.mimetype == "image/png",file4.mimetype == "image/png"|| file.mimetype == "image/jpeg",file1.mimetype == "image/jpeg", file2.mimetype == "image/jpeg", file3.mimetype == "image/jpeg",file4.mimetype == "image/jpeg"){
            
        file.mv('publics/assets/images/product/'+file.name, function(err){
            if(err)
@@ -157,7 +157,7 @@ module.exports.addproduct = function(req, res){
      } else {
        message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
        console.log(message);
-       res.render('product',{message: message});
+       res.redirect('/product')
      }
     
    
@@ -262,5 +262,79 @@ module.exports.addproduct = function(req, res){
     });
 
 }
+
+module.exports.foodproduct = function(req, res){
+    
+    connection.query ( `SELECT * FROM product   WHERE category="food"  `,(err, result) => {
+        if(err) throw err;
+        else{
+            
+                res.json(result)
+            
+        }
+        
+    });
+
+}
+module.exports.storeproduct = function(req, res){
+    connection.query ( `SELECT * FROM product WHERE category="store" `,(err, result) => {
+        if(err) throw err;
+        else{
+            
+                res.json(result)
+            
+        }
+        
+    });
+
+}
+
+module.exports.clotheproduct = function(req, res){
+    connection.query ( `SELECT * FROM product WHERE category="clothe" `,(err, result) => {
+        if(err) throw err;
+        else{
+            
+                res.json(result)
+            
+        }
+        
+    });
+
+}
  
- 
+module.exports.electronproduct = function(req, res){
+    connection.query ( `SELECT * FROM product WHERE category="electronic"`,(err, result) => {
+        if(err) throw err;
+        else{
+            
+                res.json(result)
+            
+        }
+        
+    });
+
+}
+module.exports.cosmeticproduct = function(req, res){
+    connection.query ( `SELECT * FROM product WHERE category="cosmetic"`,(err, result) => {
+        if(err) throw err;
+        else{
+            
+                res.json(result)
+            
+        }
+        
+    });
+
+}
+module.exports.furnitureproduct = function(req, res){
+    connection.query ( `SELECT * FROM product WHERE category="furniture"`,(err, result) => {
+        if(err) throw err;
+        else{
+            
+                res.json(result)
+            
+        }
+        
+    });
+
+}

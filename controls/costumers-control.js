@@ -73,7 +73,7 @@ module.exports.signin= function(req, res){
                console.log(results[0])
                return res.status(200).json(results[0].cos_id); }
          else {
-           return res.status(500).json("incorrect detail");
+           return res.status(500).json("Fadlan Email ama Furaha Sirta ah Mid Ayaa Qaldan");
          }
        })
       }

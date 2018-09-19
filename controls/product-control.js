@@ -289,18 +289,7 @@ module.exports.storeproduct = function(req, res){
 
 }
 
-module.exports.clotheproduct = function(req, res){
-    connection.query ( `SELECT * FROM product WHERE category="clothe" `,(err, result) => {
-        if(err) throw err;
-        else{
-            
-                res.json(result)
-            
-        }
-        
-    });
-
-}
+ 
  
 module.exports.electronproduct = function(req, res){
     connection.query ( `SELECT * FROM product WHERE category="electronic"`,(err, result) => {

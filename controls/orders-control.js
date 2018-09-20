@@ -9,24 +9,30 @@ module.exports.orderitem = function(req, res){
    var  address1 = req.body.address1;
    var  address2 = req.body.address2;
    var  town = req.body.town;
-   var  ordertime = Date();;
    var  phone  = req.body.phone;
    var  status = req.body.status;
    var  payment = req.body.payment;
+
+if(!costumer || !product || !address1 ||!address2  ||  !town  || !phone  || !status  || !payment){
+  res.status(500).json("kumaad guuleysan dirida dalabkan Fadlan Buuxi Foomka")
+} else{
 
 
  var sql = "INSERT INTO `order_item`(`costumer`,`product`,`address1`,`address2`, `town` ,`ordertime`,`phone`,`status`,`payment`) VALUES ('" + costumer + "','" + product + "','" + address1 + "','" + address2 + "','" + town + "','" + new Date() + "','" + phone + "','" + status + "' ,'" + payment + "')";
  var query = connection.query(sql, function(err, result){
       if(err){
-        res.json("kumaad guuleysan dirida dalabkan")
+        res.status(500).json("kumaad guuleysan dirida dalabkan")
         console.log(err)
       } else{
-        res.json("waad dirtey dalabkaaga")
+        res.status(200).json("waad dirtey dalabkaaga")
 
       }   
               
          
         })
+
+}
+
 
  
 

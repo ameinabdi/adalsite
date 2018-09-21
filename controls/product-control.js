@@ -277,7 +277,7 @@ module.exports.foodproduct = function(req, res){
 
 }
 module.exports.storeproduct = function(req, res){
-    connection.query ( `SELECT * FROM product WHERE category="store" `,(err, result) => {
+    connection.query ( `SELECT * FROM product WHERE category="store"   ORDER BY pro_id DESC`,(err, result) => {
         if(err) throw err;
         else{
             

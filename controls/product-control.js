@@ -251,7 +251,7 @@ module.exports.addproduct = function(req, res){
 
  module.exports.detailproduct = function(req, res){
         
-    connection.query ( `SELECT * FROM product WHERE pro_id = ${req.params.id}`,(err, result) => {
+    connection.query ( `SELECT * FROM product INNER JOIN users ON product.user_id = users.buss_id WHERE product.pro_id = ${req.params.id}`,(err, result) => {
         if(err) throw err;
         else{
             
@@ -265,7 +265,7 @@ module.exports.addproduct = function(req, res){
 
 module.exports.foodproduct = function(req, res){
     
-    connection.query ( `SELECT * FROM product   WHERE category="food"  `,(err, result) => {
+    connection.query ( `SELECT * FROM product   WHERE category="food" ORDER BY pro_id DESC `,(err, result) => {
         if(err) throw err;
         else{
             
@@ -292,7 +292,7 @@ module.exports.storeproduct = function(req, res){
  
  
 module.exports.electronproduct = function(req, res){
-    connection.query ( `SELECT * FROM product WHERE category="electronic"`,(err, result) => {
+    connection.query ( `SELECT * FROM product WHERE category="electronic" ORDER BY pro_id DESC`,(err, result) => {
         if(err) throw err;
         else{
             
@@ -304,7 +304,7 @@ module.exports.electronproduct = function(req, res){
 
 }
 module.exports.cosmeticproduct = function(req, res){
-    connection.query ( `SELECT * FROM product WHERE category="cosmetic"`,(err, result) => {
+    connection.query ( `SELECT * FROM product WHERE category="cosmetic" ORDER BY pro_id DESC`,(err, result) => {
         if(err) throw err;
         else{
             
@@ -316,7 +316,7 @@ module.exports.cosmeticproduct = function(req, res){
 
 }
 module.exports.furnitureproduct = function(req, res){
-    connection.query ( `SELECT * FROM product WHERE category="furniture"`,(err, result) => {
+    connection.query ( `SELECT * FROM product WHERE category="furniture" ORDER BY pro_id DESC`,(err, result) => {
         if(err) throw err;
         else{
             

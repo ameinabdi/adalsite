@@ -253,10 +253,15 @@ module.exports.addproduct = function(req, res){
         
     connection.query ( `SELECT * FROM product INNER JOIN users ON product.user_id = users.buss_id WHERE product.pro_id = ${req.params.id}`,(err, result) => {
         if(err) throw err;
+        
         else{
             
-                res.json(result)
-            
+            connection.query('SELECT  company,phone,type FROM payment INNER JOIN product ON payment.user_id = product.user_id WHERE product.pro_id = "'+req.params.id+'" ', function(err, rows){
+                if(err) throw err;
+                else{
+                    res.json({result,rows})
+                }
+            })
         }
         
     });

@@ -53,9 +53,9 @@ module.exports.orderlist = function(req, res) {
     sess = req.session; 
          
     if(sess.email){
-        connection.query('SELECT * FROM  product INNER JOIN order_item ON product.pro_id = order_item.product WHERE product.user_id =  "' + user.buss_id + '"', function(err, rows, fields) {
+        connection.query('SELECT * FROM order_item  INNER JOIN product   ON  order_item.product = product.pro_id  LEFT JOIN costumers ON  order_item.costumer = costumers.cos_id  WHERE product.user_id =  "' + user.buss_id + '"', function(err, rows, fields) {
           if(err) throw err;
-          
+                console.log(rows);
                res.render('orders',{user:user, order:rows})
            
         

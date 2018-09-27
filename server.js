@@ -9,7 +9,6 @@ var app = express();
 var ip = require('ip');
 var cors = require('cors');
 var multer  = require('multer')
-var sslRedirect = require('heroku-ssl-redirect');
 var upload = multer({ dest: 'publics/assets/images/product/' })
 var connection = require('./config');
 
@@ -24,7 +23,7 @@ var payment =  require('./controls/payment-control');
 var Notification = require('./controls/notification-control');
 var about = require('./controls/about-control.js')
 
-app.use(sslRedirect());
+
 app.use(express.static(__dirname + '/publics'));
  
 

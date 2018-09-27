@@ -9,6 +9,7 @@ var app = express();
 var ip = require('ip');
 var cors = require('cors');
 var multer  = require('multer')
+var forceSsl = require('force-ssl-heroku');
 var upload = multer({ dest: 'publics/assets/images/product/' })
 var connection = require('./config');
 
@@ -25,7 +26,7 @@ var about = require('./controls/about-control.js')
 
 
 app.use(express.static(__dirname + '/publics'));
- 
+app.use(forceSsl);
 
 app.use(session({
     secret: 'amouduniversity',

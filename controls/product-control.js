@@ -200,7 +200,7 @@ module.exports.addproduct = function(req, res){
     }
 
 
-    if(file.mimetype == "image/jpeg",file1.mimetype == "image/jpeg",file2.mimetype == "image/jpeg", file3.mimetype == "image/jpeg",  file4.mimetype == "image/jpeg" || file.mimetype == "image/png",file1.mimetype == "image/png", file2.mimetype == "image/png", file3.mimetype == "image/png",file4.mimetype == "image/png"){
+    if( file.mimetype == "image/png",file1.mimetype == "image/png", file2.mimetype == "image/png", file3.mimetype == "image/png",file4.mimetype == "image/png"|| file.mimetype == "image/jpeg",file1.mimetype == "image/jpeg", file2.mimetype == "image/jpeg", file3.mimetype == "image/jpeg",file4.mimetype == "image/jpeg"){
            
         file.mv('publics/assets/images/product/'+file.name, function(err){
             if(err)

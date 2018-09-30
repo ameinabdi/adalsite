@@ -190,6 +190,7 @@ module.exports.addproduct = function(req, res){
         description: req.body.description,
         brand: req.body.brand,
         delivery: req.body.delivery, 
+        user  :req.body.user_id,
         thumbnail:file.name,
         photo1 : file1.name,
         photo2 : file2.name,

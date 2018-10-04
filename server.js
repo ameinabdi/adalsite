@@ -71,7 +71,10 @@ app.use(methodOverride(function (req, res) {
 
  
 /* route to handle login and registration */
-app.get('/', function(req, res){ 
+app.get('/', function(req,res){
+  res.render('home')
+})
+app.get('/login', function(req, res){ 
     res.render('index', {  expressFlash: req.flash('success','danger')});
 });
 app.get('/signup', function(req, res){ 

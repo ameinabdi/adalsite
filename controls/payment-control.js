@@ -55,7 +55,7 @@ module.exports.payment=function(req, res){
         })
 
     } else {
-        res.redirect('/') 
+        res.redirect('/login') 
      }
 
     
@@ -86,7 +86,7 @@ module.exports.deletepayment=function(req, res){
         connection.query(`DELETE FROM payment WHERE pay_id = ${req.params.id}`, function(err,rows){
             if(err){
                 console.log(err);
-                res.redirect('/')
+                res.redirect('/login')
 
             } else{
                 res.redirect('/payment')
@@ -94,7 +94,7 @@ module.exports.deletepayment=function(req, res){
         })
 
     } else {
-        res.redirect('/') 
+        res.redirect('/login') 
      }
 
     

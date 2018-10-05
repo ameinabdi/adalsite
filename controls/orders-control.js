@@ -62,7 +62,7 @@ module.exports.orderlist = function(req, res) {
        
     });
     } else {
-       res.redirect('/') 
+       res.redirect('/login') 
     }
 
 
@@ -87,6 +87,6 @@ module.exports.orderview = function(req, res){
           });
      
   }else{
-      res.redirect('/')
+      res.redirect('/login')
   }
 }

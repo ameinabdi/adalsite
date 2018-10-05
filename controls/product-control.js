@@ -19,7 +19,7 @@ module.exports.infoproduct = function(req, res){
             });
        
     }else{
-        res.redirect('/')
+        res.redirect('/login')
     }
 }
 module.exports.singleproduct = function(req, res){
@@ -39,7 +39,7 @@ module.exports.singleproduct = function(req, res){
             });
        
     }else{
-        res.redirect('/')
+        res.redirect('/login')
     }
 }
 module.exports.deleteproduct = function(req, res){
@@ -71,7 +71,7 @@ module.exports.deleteproduct = function(req, res){
            
        
     }else{
-        res.redirect('/')
+        res.redirect('/login')
     }
 }
 
@@ -86,7 +86,7 @@ module.exports.viewproduct = function(req, res){
         res.render('product', {user:user, product:rows});
     });
     } else {
-       res.redirect('/') 
+       res.redirect('/login') 
     }
 
 }
@@ -200,7 +200,7 @@ module.exports.addproduct = function(req, res){
     }
 
 
-    if( file.mimetype == "image/png",file1.mimetype == "image/png", file2.mimetype == "image/png", file3.mimetype == "image/png",file4.mimetype == "image/png"|| file.mimetype == "image/jpeg",file1.mimetype == "image/jpeg", file2.mimetype == "image/jpeg", file3.mimetype == "image/jpeg",file4.mimetype == "image/jpeg"){
+    if( file.mimetype == "image/png",file1.mimetype == "image/png", file2.mimetype == "image/png", file3.mimetype == "image/png",file4.mimetype == "image/png"|| file.mimetype == "image/jpg",file1.mimetype == "image/jpg", file2.mimetype == "image/jpg", file3.mimetype == "image/jpg",file4.mimetype == "image/jpg"){
            
         file.mv('publics/assets/images/product/'+file.name, function(err){
             if(err)
@@ -240,7 +240,7 @@ module.exports.addproduct = function(req, res){
      } else {
         message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
         console.log(message);
-        res.render('product',{message: message});
+        res.redirect('/product',{message: message});
       }
      
    

@@ -43,6 +43,7 @@ body{
     position: relative;
     overflow-x: hidden;
 }
+ 
 h1, h2, h3, h4, h5, h6{
     font-family: 'Arimo', sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -798,7 +799,7 @@ ul.nav > li > a.active{
     margin-right: 10px;
 }
 .post-meta i{
-    color: #1151d3;
+    color: #f33106;
     margin-right: 5px;
 }
 .blog-post{}
@@ -932,7 +933,7 @@ ul.nav > li > a.active{
    Scroll To Top
    ========================================================================== */
 #scroll-to-top{
-    background-color: #1151d3;
+    background-color: #f33106;
     display: none;
     width: 45px;
     height: 45px;

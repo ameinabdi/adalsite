@@ -38,7 +38,7 @@ module.exports.dashboard=function(req,res){
                                                         var count = result[0].rows;
                                                         var row = order.count;
                                                         var tot =total[0].total;
-                                                        res.render('dashboard', {user:user, count:count,  row:row,  tot:tot, orders:orders });
+                                                        res.render('dashboard', {user:user, count:count,  row:row,  tot:tot, orders:orders, message: req.flash('success') });
                                         
                                                              }); 
                                                               

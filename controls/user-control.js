@@ -2,7 +2,7 @@ var connection = require('../config');
 var bcrypt = require('bcryptjs');
 
 module.exports.register = function(req, res){
-    var hashedPassword = bcrypt.hashSync(req.body.password, 8,)
+    var hashedPassword = bcrypt.hashSync(req.body.password, 8)
      
       
       var  name = req.body.name;
@@ -97,8 +97,8 @@ module.exports.login=function(req,res){
     
 
     if(!sess.email || !sess.password){
-        req.flash('success', 'fadlan geli email kaaga iyo furaha sirta ah si aad u gasho');              
-        res.redirect('/') 
+        req.flash('error', 'fadlan geli email kaaga iyo furaha sirta ah si aad u gasho');              
+        res.redirect('/login') 
       } else {
    connection.query('SELECT * FROM users WHERE email = ? ',sess.email, function(error, rows){
     if(rows.length){
@@ -109,11 +109,12 @@ module.exports.login=function(req,res){
             if(result) {
                   req.session.userId = results[0].id;
                   req.session.user = results[0];
+                  req.flash('success', 'Ku Soo Dhawow. Macmiil Gacmo Furan!');              
+
                   res.redirect('/dashboard');
         }  else {
-          console.log('Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta')  
-          req.flash('success', 'Waxbaa Ka Qaldan Fadlan La xidhiidh Qaybta Macamiisha');              
-          res.redirect('/') 
+          req.flash('error', 'Waxbaa Ka Qaldan Fadlan La xidhiidh Qaybta Macamiisha');              
+          res.redirect('/login') 
  
                     
              }
@@ -132,10 +133,9 @@ module.exports.login=function(req,res){
 
     } else{
 
-      res.redirect('/') 
-      console.log('Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta')  
-      req.flash('success', 'Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta');              
-     
+      
+      req.flash('error', 'Majiro account kan aad gelisey fadlan iska hubi emailka iyo furaha sirta');              
+      res.redirect('/login') 
      
 
 

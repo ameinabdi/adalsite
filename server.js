@@ -75,7 +75,7 @@ app.get('/', function(req,res){
   res.render('home')
 })
 app.get('/login', function(req, res){ 
-    res.render('index', {  expressFlash: req.flash('success','danger')});
+    res.render('index', {  message: req.flash('error')});
 });
 app.get('/signup', function(req, res){ 
     res.render('register', { danger: req.flash('danger'), expressFlash: req.flash('success') });

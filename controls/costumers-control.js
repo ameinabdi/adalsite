@@ -2,7 +2,7 @@ var connection = require('../config');
 var bcrypt = require('bcryptjs');
 
 module.exports.register = function(req, res){
-    var hashedPassword = bcrypt.hashSync(req.body.password, 8,)
+    var hashedPassword = bcrypt.hashSync(req.body.password, 8)
   
    
    var fullname = req.body.fullname;

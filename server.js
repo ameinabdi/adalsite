@@ -150,7 +150,7 @@ app.post('/addnotification', Notification.addnatification)
 
 
  
-var port = process.env.PORT || 443;
+var port = process.env.PORT || 3000;
 
 app.listen(port);
 console.log(ip.address())

@@ -76,7 +76,7 @@ module.exports.orderview = function(req, res){
   if(sess.email){
       
       
-          connection.query ( `SELECT * FROM order_item WHERE order_id = ${req.params.id}`,(err, result) => {
+          connection.query ( `SELECT * FROM order_item  INNER JOIN product   ON  order_item.product = product.pro_id  LEFT JOIN costumers ON  order_item.costumer = costumers.cos_id WHERE order_id = ${req.params.id}`,(err, result) => {
               if(err) throw err;
               else{
                   

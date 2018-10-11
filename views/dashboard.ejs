@@ -36,21 +36,18 @@
                                  </nav>
                                  <% if ( message.length > 0 ) { %>
                                     <script>
-                                            $('#myAlert').on('pmd-alert-toggle', function () {
-                                                        // do something…
-                                            })
-                                                                                                
-                                                                                                
+                                        $('.pmd-alert-toggle').pmdAlert();
                                     </script>
+                                  
                                         
-                                    
+                                        <div   data-positionX="right" data-positionY="top" data-duration="5000" data-effect="fadeInUp" data-message="<%= message %>" data-type="information"  data-revert="fadeOutUp" data-action="true" class=" pmd-ripple-effect btn-info pmd-btn-raised  ">
+                                        </div>
 
                                     
   
                                         
                               <% } %>
-                              <div data-positionX="right" data-positionY="top" data-duration="5000" data-effect="fadeInUp" data-message="<%= message %>" data-type="information"  data-revert="fadeOutUp" class="btn pmd-ripple-effect btn-info pmd-btn-raised ">
-                                     </div>
+                            
                              </div>
                          </div>
                      </div>

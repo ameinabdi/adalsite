@@ -35,12 +35,22 @@
                                      </ol>
                                  </nav>
                                  <% if ( message.length > 0 ) { %>
-                                    <div class="alert alert-success">
-                                            <strong>Guul!</strong> <%= message %>
-                                          </div>
+                                    <script>
+                                            $('#myAlert').on('pmd-alert-toggle', function () {
+                                                        // do something…
+                                            })
+                                                                                                
+                                                                                                
+                                    </script>
+                                        
+                                    
+
+                                    
   
                                         
                               <% } %>
+                              <div data-positionX="right" data-positionY="top" data-duration="5000" data-effect="fadeInUp" data-message="<%= message %>" data-type="information"  data-revert="fadeOutUp" class="btn pmd-ripple-effect btn-info pmd-btn-raised ">
+                                     </div>
                              </div>
                          </div>
                      </div>

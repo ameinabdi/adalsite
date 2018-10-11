@@ -8,7 +8,7 @@ module.exports.aboutus=function(req,res){
         res.render('about.ejs', {user:user})
  
     } else {
-       res.redirect('/') 
+       res.redirect('/login') 
     }
  
 

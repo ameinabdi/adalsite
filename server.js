@@ -88,7 +88,7 @@ app.post('/login', users.login);
  
 app.get('/logout',function(req,res){
   req.session.destroy()
-      res.redirect('/');
+      res.redirect('/login');
   
 });
 app.get('/profile', users.userprofile)

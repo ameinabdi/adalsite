@@ -158,7 +158,7 @@ module.exports.userprofile=function(req,res){
       res.render('profile', {user:user});
 
   } else {
-     res.redirect('/') 
+     res.redirect('/login') 
   }
 
 

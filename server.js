@@ -11,6 +11,9 @@ var cors = require('cors');
 var multer  = require('multer')
 var upload = multer({ dest: 'publics/assets/images/product/' })
 var connection = require('./config');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 
 //routers
 
@@ -28,7 +31,7 @@ app.use(express.static(__dirname + '/publics'));
  
 
 app.use(session({
-    secret: 'amouduniversity',
+    secret: 'adalsite',
     resave: false,
     saveUninitialized: true,
     cookie: { }
@@ -81,6 +84,9 @@ app.get('/signup', function(req, res){
     res.render('register', { danger: req.flash('danger'), expressFlash: req.flash('success') });
 });
 app.get('/dashboard', dashboard.dashboard);
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
 app.get('/aboutus', about.aboutus )
  
 app.post('/signup', users.register);

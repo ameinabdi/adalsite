@@ -135,7 +135,7 @@ module.exports.addproduct = function(req, res){
                     file4.mv('publics/assets/images/product/'+file4.name, function(err){
                         if(err)
                         return res.status(500).json(err);
-                        var sql = "INSERT INTO `product`(`name`,`category`,`quantity`,`price`,`lastprice`,`description`,`thumbnail`,`photo1`,`photo2`,`photo3`,`photo4`,`brand`,`delivery`,`user_id`) VALUES ('" + name + "','" + category + "','" + quantity + "','" + price + "','" + lastprice + "','" + description + "','" + thumbnail + "','" + photo1 + "','" + photo2 + "','" + photo3 + "','" + photo4 + "','" + brand + "','" + delivery + "','" + user + "')";
+                        var sql = "INSERT INTO `product`(`pro_name`,`category`,`quantity`,`price`,`lastprice`,`description`,`thumbnail`,`photo1`,`photo2`,`photo3`,`photo4`,`brand`,`delivery`,`user_id`) VALUES ('" + name + "','" + category + "','" + quantity + "','" + price + "','" + lastprice + "','" + description + "','" + thumbnail + "','" + photo1 + "','" + photo2 + "','" + photo3 + "','" + photo4 + "','" + brand + "','" + delivery + "','" + user + "')";
                         var query = connection.query(sql, function(err, result){
                           console.log(result)
                                  res.redirect('/product')
@@ -175,7 +175,7 @@ module.exports.addproduct = function(req, res){
     var file3 = req.files.photo3;
     var file4 = req.files.photo4;
     var natification={
-        name: req.body.name,
+        pro_name: req.body.name,
         category:req.body.category,
         quantity: req.body.quantity,
         price: req.body.price,
